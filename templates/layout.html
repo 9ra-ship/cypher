@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Bloom$Trade</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Boxicons - Use Online CDN -->
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Animate on scroll - used CDN link instead -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+  <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+  <!-- Template Main CSS File -->
+  <link href="static/css/style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex d-md-inline-flex-row justify-content-between">
+      <h1 class="logo d-flex align-items-center"><a href="/">Bloom$-Trade</a></h1>
+      <nav class="nav-menu d-none d-lg-block justify-content-end align-items-center" style=margin-right:8px;>
+        {% if session.user_id %}
+            <ul class="navbar-nav flex-row justify-content-end mr-auto mt-2">
+                <li class="nav-item"><a class="nav-link" href="/">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="/quote">Quote & Buy</a></li>
+                <li class="nav-item"><a class="nav-link" href="/sellEstimator">Sell</a></li>
+                <li class="nav-item"><a class="nav-link" href="/history">History</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            </ul>
+        {% else %}
+            <ul class="navbar-nav flex-row justify-content-end mr-auto mt-2" style=margin-right:8px;>
+                <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            </ul>
+        {% endif %}
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+  <!-- ======= Hero Body Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    {% if get_flashed_messages() %}
+        <header>
+            <div class="alert alert-primary border text-center" role="alert">
+                {{ get_flashed_messages() | join(" ") }}
+            </div>
+        </header>
+    {% endif %}
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <!-- MAIN BLOCK  -->
+      <main id=main class="container">
+        {% block main %}{% endblock %}
+      </main>
+    </div>
+  </section><!-- End Hero -->
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+
+      <div class="credits">
+        Source: <a href="https://www.yahoo.com/finance">Yahoo Finance</a> |
+        View <a href="https://www.verizonmedia.com/policies/us/en/verizonmedia/terms/terms-privacy-policy.html">Yahoo’s Terms of Use</a> | 
+        <a href="#" class="twitter"><ion-icon name="logo-twitter"></ion-icon></a> | 
+        <a href="#" class="facebook"><ion-icon name="logo-facebook"></ion-icon></a> | 
+        <a href="#" class="instagram"><ion-icon name="logo-instagram"></ion-icon></a> | 
+        <a href="#" class="linkedin"><ion-icon name="logo-linkedin"></ion-icon></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+  <!-- Vendor JS Files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <!-- Third party plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://pagecdn.io/lib/waypoints/4.0.1/jquery.waypoints.min.js" crossorigin="anonymous" integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" ></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Template Main JS File -->
+  <script src="static/js/main.js"></script>
+</body>
+</html>

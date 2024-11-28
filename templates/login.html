@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block main %}
+    <div class="simple-login-container">
+        <div class="col-sm-6 my-1 form-group">
+            <h3 style="color: white;">{{ message }}</h3>
+            <h2 style="color:deeppink;"> Welcome! Please enter in your credentials:</h2>
+        </div>
+        <form action="/login" method="post">
+            <div class="col-sm-6 my-1 form-group">
+                <input autocomplete="off" autofocus class="form-control" width="60%" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="col-sm-6 my-1 form-group">
+                <input class="form-control" name="password" placeholder="Password" type="password">
+            </div>
+            <div class="col-sm-6 my-1 form-group">
+                <button class="btn btn-primary" type="submit">Sign In</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
